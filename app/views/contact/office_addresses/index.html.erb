@@ -1,0 +1,25 @@
+<h1>Listing office_addresses</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @office_addresses.each do |office_address| %>
+  <tr>
+    <td><%= office_address.title %></td>
+    <td><%= office_address.address %></td>
+    <td><%= link_to 'Show', office_address %></td>
+    <td><%= link_to 'Edit', edit_office_address_path(office_address) %></td>
+    <td><%= link_to 'Destroy', office_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Office address', new_office_address_path %>

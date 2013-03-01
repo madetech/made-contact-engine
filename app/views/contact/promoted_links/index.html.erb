@@ -1,0 +1,21 @@
+<h1>Listing promoted_links</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @promoted_links.each do |promoted_link| %>
+  <tr>
+    <td><%= link_to 'Show', promoted_link %></td>
+    <td><%= link_to 'Edit', edit_promoted_link_path(promoted_link) %></td>
+    <td><%= link_to 'Destroy', promoted_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Promoted link', new_promoted_link_path %>
