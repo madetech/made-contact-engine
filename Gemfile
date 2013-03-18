@@ -2,7 +2,6 @@ source "http://rubygems.org"
 gemspec
 
 gem "jquery-rails"
-gem "paperclip",                 '~> 3.0'
 
 group :test do
   gem 'brakeman'

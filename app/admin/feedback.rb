@@ -1,0 +1,33 @@
+if defined?(ActiveAdmin)
+  ActiveAdmin.register Contact::Feedback do
+    menu :label => "Feedback", :parent => "Contact"
+
+    index :title => "Feedback" do
+      column :first_name
+      column :last_name
+      column :created_at
+      column :sent_at
+
+      default_actions
+    end
+
+    form do |f|
+      f.inputs "Feedback" do
+        f.input     :first_name
+        f.input     :last_name
+        f.input     :email
+        f.input     :message
+        f.input     :newsletter_opt_in
+        f.input     :created_at,          :as => :datepicker
+        f.input     :sent_at,             :as => :datepicker
+      end
+
+      f.buttons
+    end
+
+    filter :first_name
+    filter :last_name
+    filter :created_at
+    filter :sent_at
+  end
+end
