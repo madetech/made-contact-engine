@@ -5,6 +5,7 @@ if defined?(ActiveAdmin)
     index :title => "Feedback" do
       column :first_name
       column :last_name
+      column :email
       column :created_at
       column :sent_at
 
@@ -27,6 +28,7 @@ if defined?(ActiveAdmin)
 
     filter :first_name
     filter :last_name
+    filter :email
     filter :created_at
     filter :sent_at
   end

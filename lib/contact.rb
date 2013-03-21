@@ -1,6 +1,9 @@
 require "contact/engine"
 
 module Contact
+  mattr_accessor :cache_sweeper
+  @@cache_sweeper = false
+
   class Engine < Rails::Engine
     isolate_namespace Contact
 
@@ -12,10 +15,7 @@ module Contact
   end
 
   def self.config(&block)
-    @@config ||= Product::Engine::Configuration.new
-
-    yield @@config if block
-
-    return @@config
+    yield self if block
+    return self
   end
 end

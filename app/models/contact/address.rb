@@ -10,7 +10,6 @@ module Contact
                                     :content,
                                     :latitude,
                                     :longitude,
-                                    :map_link,
                                     :ordering,
                                     :fields_attributes
 

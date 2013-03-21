@@ -1,10 +1,11 @@
 if defined?(ActiveAdmin)
   ActiveAdmin.register Contact::Address do
-    menu :label => "Pages", :parent => "Contact"
-
     controller do
+      cache_sweeper Contact.config.cache_sweeper if Contact.config.cache_sweeper
       defaults :finder => :find_by_url
     end
+
+    menu :label => "Pages", :parent => "Contact"
 
     index :title => "Contact Addresses" do
       column :name
@@ -20,8 +21,6 @@ if defined?(ActiveAdmin)
                     :config => { :width => '76%', :height => '300px' }
         f.input     :latitude
         f.input     :longitude
-        f.input     :map_link,
-                    :as => :string
         f.input     :ordering
 
         f.has_many  :fields do |f_field|
@@ -38,7 +37,7 @@ if defined?(ActiveAdmin)
         end
       end
 
-      f.buttons
+      f.actions
     end
 
     filter :name
