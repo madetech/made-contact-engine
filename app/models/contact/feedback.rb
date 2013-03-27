@@ -6,7 +6,8 @@ module Contact
                                     :last_name,
                                     :email,
                                     :message,
-                                    :newsletter_opt_in
+                                    :newsletter_opt_in,
+                                    :sent_at
 
     validates_presence_of           :first_name,
                                     :last_name,
@@ -18,6 +19,13 @@ module Contact
 
     def to_s
       "#{first_name} #{last_name}"
+    end
+
+    def self.send_unsent_via_email
+      feedback = Contact::Feedback.where(:sent_at => nil)
+      feedback.each do |item|
+        FeedbackMailer.send_feedback(item).deliver
+      end
     end
   end
 end
