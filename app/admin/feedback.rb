@@ -23,7 +23,7 @@ if defined?(ActiveAdmin)
         f.input     :sent_at,             :as => :datepicker
       end
 
-      f.buttons
+      f.actions
     end
 
     filter :first_name
