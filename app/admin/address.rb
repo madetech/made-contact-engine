@@ -1,4 +1,4 @@
-if defined?(ActiveAdmin)
+if defined?(ActiveAdmin) and Contact.config.admin_enabled.include?(:address)
   ActiveAdmin.register Contact::Address do
     controller do
       cache_sweeper Contact.config.cache_sweeper if Contact.config.cache_sweeper

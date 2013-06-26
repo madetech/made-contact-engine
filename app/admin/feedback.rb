@@ -1,4 +1,4 @@
-if defined?(ActiveAdmin)
+if defined?(ActiveAdmin) and Contact.config.admin_enabled.include?(:feedback)
   ActiveAdmin.register Contact::Feedback do
     menu :label => "Feedback", :parent => "Contact"
 

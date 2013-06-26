@@ -4,6 +4,9 @@ module Contact
   mattr_accessor :cache_sweeper
   @@cache_sweeper = false
 
+  mattr_accessor :admin_enabled
+  @@admin_enabled = [:feedback, :address, :newsletter]
+
   class Engine < Rails::Engine
     isolate_namespace Contact
 
