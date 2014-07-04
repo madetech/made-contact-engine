@@ -21,6 +21,7 @@ if defined?(ActiveAdmin) and Contact.config.admin_enabled.include?(:feedback)
         f.input     :newsletter_opt_in
         f.input     :created_at,          :as => :datepicker
         f.input     :sent_at,             :as => :datepicker
+        f.input     :image,               :hint => f.template.image_tag(f.object.image.url(:thumb))
       end
 
       f.actions
