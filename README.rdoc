@@ -1,3 +1,6 @@
-= Contact
+= Made Contact Engine
 
-This project rocks and uses MIT-LICENSE.
+This engine will add make it easy to manage your contacts.
+It is integrated with ActiveAdmin where you can see a listing of the submissions.
+
+There is a newsletter signup mixin that can be used to manage newsletter signups.

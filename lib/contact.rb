@@ -7,6 +7,9 @@ module Contact
   mattr_accessor :admin_enabled
   @@admin_enabled = [:feedback, :address, :newsletter]
 
+  mattr_accessor :image_styles
+  @@image_styles = {}
+
   class Engine < Rails::Engine
     isolate_namespace Contact
 

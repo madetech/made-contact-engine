@@ -2,6 +2,8 @@ source "http://rubygems.org"
 gemspec
 
 gem "jquery-rails"
+gem "paperclip", '~> 4.1.1'
+gem 'nokogiri',  '1.5.11'
 
 group :test do
   gem 'brakeman'

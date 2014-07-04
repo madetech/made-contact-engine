@@ -5,9 +5,12 @@ module Contact
     attr_accessible                 :first_name,
                                     :last_name,
                                     :email,
+                                    :image,
                                     :message,
                                     :newsletter_opt_in,
                                     :sent_at
+
+    has_attached_file               :image, styles: Contact.config.image_styles
 
     validates_presence_of           :first_name,
                                     :last_name,
@@ -22,7 +25,7 @@ module Contact
     end
 
     def self.send_unsent_via_email
-      feedback = Contact::Feedback.where(:sent_at => nil)
+      feedback = Contact::Feedback.where(sent_at: nil)
       feedback.each do |item|
         FeedbackMailer.send_feedback(item).deliver
       end
