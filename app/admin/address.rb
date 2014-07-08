@@ -22,18 +22,18 @@ if defined?(ActiveAdmin) and Contact.config.admin_enabled.include?(:address)
         f.input     :latitude
         f.input     :longitude
         f.input     :ordering
+      end
 
-        f.has_many  :fields do |f_field|
-          f_field.inputs "Contact Field" do
-            f_field.input :name
-            f_field.input :content,
-                          :as => :rich,
-                          :config => { :width => '76%', :height => '100px' }
-            f_field.input :ordering
-            f_field.input :_destroy,
-                          :as => :boolean,
-                          :label => "Delete"
-          end
+      f.inputs "Contact Fields" do
+        f.has_many :fields, heading: ""  do |f_field|
+          f_field.input :name
+          f_field.input :content,
+                        :as => :rich,
+                        :config => { :width => '76%', :height => '100px' }
+          f_field.input :ordering
+          f_field.input :_destroy,
+                        :as => :boolean,
+                        :label => "Delete"
         end
       end
 

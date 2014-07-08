@@ -14,6 +14,8 @@ module Contact
                                     :fields_attributes
 
     validates_presence_of           :name
+    validates_presence_of           :latitude, if: Proc.new { |a| a.longitude.present? }
+    validates_presence_of           :longitude, if: Proc.new { |a| a.latitude.present? }
 
     acts_as_url                     :name
 
@@ -25,6 +27,10 @@ module Contact
 
     def to_s
       name
+    end
+
+    def has_map_coordinates?
+      self.latitude.present? and self.longitude.present?
     end
   end
 end
