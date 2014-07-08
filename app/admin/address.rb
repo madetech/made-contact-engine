@@ -25,15 +25,12 @@ if defined?(ActiveAdmin) and Contact.config.admin_enabled.include?(:address)
       end
 
       f.inputs "Contact Fields" do
-        f.has_many :fields, heading: ""  do |f_field|
-          f_field.input :name
-          f_field.input :content,
-                        :as => :rich,
-                        :config => { :width => '76%', :height => '100px' }
-          f_field.input :ordering
-          f_field.input :_destroy,
-                        :as => :boolean,
-                        :label => "Delete"
+        f.has_many :fields, heading: false, allow_destroy: true  do |cf|
+          cf.input :name
+          cf.input :content,
+                   :as => :rich,
+                   :config => { :width => '76%', :height => '100px' }
+          cf.input :ordering
         end
       end
 
