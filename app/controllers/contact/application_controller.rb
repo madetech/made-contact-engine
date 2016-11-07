@@ -1,4 +1,2 @@
-module Contact
-  class ApplicationController < ActionController::Base
-  end
+class Contact::ApplicationController < ApplicationController
 end
